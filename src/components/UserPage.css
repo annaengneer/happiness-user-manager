@@ -1,0 +1,49 @@
+.user-page {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tab-buttons,
+.sort-controls {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.sort-controls select {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #fff;
+  cursor: pointer;
+}
+
+button.active {
+  background: #3f88f4;
+  color: #fff;
+  border-color: #7ba6e7;
+}
+
+.sort-controls select:disabled {
+  opacity: 0.5;
+}
+
+.tab-buttons button {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #ffffff;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tab-buttons button:hover {
+  background: #f0f4ff;
+}
+
+.tab-buttons button.active {
+  background: #3f88f4;
+  color: #ffffff;
+  border-color: #3f88f4;
+}
