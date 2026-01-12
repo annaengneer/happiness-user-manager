@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import type { Mentor, Student, User } from '../../types/user';
 import { BaseUserForm, type BaseForm } from './BaseUserForm';
-import { v4 as uuidv4 } from 'uuid';
-
+import { useRef } from 'react';
 import { StudentForm } from './StudentForm';
 import { MentorForm } from './MentorForm';
 import { RoleSwitch } from './RoleSwitch';
@@ -17,8 +16,19 @@ const UserCreateForm = ({ onCreate }: Props) => {
   const navigate = useNavigate();
   const [role, setRole] = useState<'student' | 'mentor'>('student');
 
+  const idRef = useRef<number | null>(null);
+
+  const nextId = () => {
+    if (idRef.current === null) {
+      idRef.current = Date.now();
+    }
+    idRef.current += 1;
+    return idRef.current;
+  };
+
   const EmptyCheck = (obj: Record<string, string>) =>
     Object.values(obj).some((v) => !v.trim());
+
   const handleSubmit = () => {
     if (EmptyCheck(baseForm)) {
       alert('基本情報はすべて必須です');
@@ -37,7 +47,7 @@ const UserCreateForm = ({ onCreate }: Props) => {
 
     if (role === 'student') {
       const newStudent: Student = {
-        id: uuidv4(),
+        id: nextId(),
         role: 'student',
         name: baseForm.name,
         email: baseForm.email,
@@ -55,7 +65,7 @@ const UserCreateForm = ({ onCreate }: Props) => {
     }
     if (role === 'mentor') {
       const newMentor: Mentor = {
-        id: uuidv4(),
+        id: nextId(),
         role: 'mentor',
         name: baseForm.name,
         email: baseForm.email,

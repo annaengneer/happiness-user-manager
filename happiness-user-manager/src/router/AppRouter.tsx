@@ -10,12 +10,16 @@ type Props = {
 
 export const AppRouter = ({ users, onCreateUser }: Props) => {
   return (
-    <Routes>
-      <Route path="/" element={<HomePage users={users} />} />
-      <Route
-        path="/create"
-        element={<CreateUserPage onCreate={onCreateUser} />}
-      />
-    </Routes>
+    <>
+      <div style={{ padding: 20, background: 'yellow' }}>Router is working</div>
+
+      <Routes>
+        <Route path="/" element={<HomePage users={users} />} />
+        <Route
+          path="/create"
+          element={<CreateUserPage onCreate={onCreateUser} />}
+        />
+      </Routes>
+    </>
   );
 };

@@ -13,3 +13,5 @@ export const CreateUserPage = ({ onCreate }: Props) => {
     </div>
   );
 };
+
+export default UserCreateForm;
