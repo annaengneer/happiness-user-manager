@@ -1,5 +1,12 @@
 export type Role = 'student' | 'mentor';
 
+export type UserTab = 'all' | Role;
+
+export type StudentSortKey = 'studyMinutes' | 'score';
+export type MentorSortKey = 'experienceDays';
+
+export type SortKey = StudentSortKey | MentorSortKey | null;
+
 export type BaseUser = {
   id: number;
   name: string;

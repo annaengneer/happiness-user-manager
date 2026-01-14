@@ -48,7 +48,7 @@ export const UserTable = ({ users }: Props) => {
                   </a>
                 </td>
 
-                {'studyMinutes' in user ? (
+                {user.role === 'student' ? (
                   <>
                     <td>{user.studyMinutes}</td>
                     <td>{user.taskCode}</td>
@@ -63,7 +63,7 @@ export const UserTable = ({ users }: Props) => {
                     <td />
                   </>
                 )}
-                {'experienceDays' in user ? (
+                {user.role === 'mentor' ? (
                   <>
                     <td>{user.experienceDays}</td>
                     <td>{user.useLangs.join(', ')}</td>

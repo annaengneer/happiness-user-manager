@@ -1,11 +1,8 @@
 import { useState } from 'react';
 import { UserTable } from './UserTable';
-import type { User } from '../types/user';
+import type { UserTab, User, SortKey } from '../types/user';
 
 import './UserPage.css';
-
-type StudentSortKey = 'studyMinutes' | 'score' | null;
-type MentorSortKey = 'experienceDays' | null;
 
 type SortOrder = 'asc' | 'desc';
 
@@ -14,23 +11,12 @@ type Props = {
 };
 
 export const UserPage = ({ users }: Props) => {
-  const [tab, setTab] = useState<'all' | 'student' | 'mentor'>('all');
-  const [sortKey, setSortKey] = useState<StudentSortKey | MentorSortKey | null>(
-    null
-  );
+  const [tab, setTab] = useState<UserTab>('all');
+  const [sortKey, setSortKey] = useState<SortKey>(null);
   const [sortOrder, setSortOrder] = useState<SortOrder>('asc');
 
-  const handleSortkeyChange = (value: string) => {
-    if (value === '') {
-      setSortKey(null);
-    } else if (
-      tab === 'student' &&
-      (value === 'studyMinutes' || value === 'score')
-    ) {
-      setSortKey(value);
-    } else if (tab === 'mentor' && value === 'experienceDays') {
-      setSortKey(value);
-    }
+  const handleSortkeyChange = (value: SortKey) => {
+    setSortKey(value);
   };
 
   const filterUsers =
@@ -90,7 +76,11 @@ export const UserPage = ({ users }: Props) => {
           <div className="sort-controls">
             <select
               value={sortKey ?? ''}
-              onChange={(e) => handleSortkeyChange(e.target.value)}
+              onChange={(e) =>
+                handleSortkeyChange(
+                  e.target.value === '' ? null : (e.target.value as SortKey)
+                )
+              }
             >
               <option value="">並び替え項目</option>
 

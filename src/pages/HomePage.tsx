@@ -1,12 +1,9 @@
 import { Link } from 'react-router-dom';
 import { UserPage } from '../components/UserPage';
-import type { User } from '../types/user';
+import { UseUsers } from '../context/UseUsers';
 
-type Props = {
-  users: User[];
-};
-
-export const HomePage = ({ users }: Props) => {
+export const HomePage = () => {
+  const { users } = UseUsers();
   return (
     <>
       <div className="home-header">
