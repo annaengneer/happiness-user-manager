@@ -1,9 +1,9 @@
 import UserCreateForm from '../components/UserCreateForm/UserCreateForm';
-import { UseUsers } from '../context/UseUsers';
+import { useUsers } from '../context/useUsers';
 import type { User } from '../types/user';
 
 export const CreateUserPage = () => {
-  const { addUser } = UseUsers();
+  const { addUser } = useUsers();
   const handleCreate = (user: User) => {
     addUser(user);
   };

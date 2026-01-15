@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import { UserPage } from '../components/UserPage';
-import { UseUsers } from '../context/UseUsers';
+import { useUsers } from '../context/useUsers';
 
 export const HomePage = () => {
-  const { users } = UseUsers();
+  const { users } = useUsers();
   return (
     <>
       <div className="home-header">
