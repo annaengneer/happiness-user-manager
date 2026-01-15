@@ -1,0 +1,12 @@
+import { Routes, Route } from 'react-router-dom';
+import { CreateUserPage } from '../pages/CreateUserPage';
+import { HomePage } from '../pages/HomePage';
+
+export const AppRouter = () => {
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/create" element={<CreateUserPage />} />
+    </Routes>
+  );
+};
