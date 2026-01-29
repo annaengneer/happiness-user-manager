@@ -144,7 +144,7 @@ const UserCreateForm = ({ onCreate }: Props) => {
   });
 
   const handleMentorFormChange = (key: keyof MentorForm, value: string) => {
-    setStudentForm((prev) => ({
+    setMentorForm((prev) => ({
       ...prev,
       [key]: value,
     }));
